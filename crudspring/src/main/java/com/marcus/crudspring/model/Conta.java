@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
+/**
+ * 
+ * 
+ * 
+ *
+ */
 @Data
 @Entity
 @Table(name="tb_contas")

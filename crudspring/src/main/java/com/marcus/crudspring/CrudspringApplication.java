@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.CommandLinePropertySource;
+
 
 import com.marcus.crudspring.model.Conta;
 import com.marcus.crudspring.repository.ContasRepository;
@@ -15,7 +15,7 @@ public class CrudspringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudspringApplication.class, args);
 	}
-	//Dados mockados
+
 	@Bean	
 	CommandLineRunner initDatabase(ContasRepository contaRepository){
 		return args -> {
@@ -25,6 +25,7 @@ public class CrudspringApplication {
 			c.setCategory("Pessoa Fisica(Pf)");
 			c.setDinheiroTotal(90);
 			contaRepository.save(c);
+
 		};
 	}
  
