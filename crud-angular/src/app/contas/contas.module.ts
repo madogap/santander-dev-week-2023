@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
+import { MatTableModule } from '@angular/material/table';
 import { ContasRoutingModule } from './contas-routing.module';
 import { ContasComponent } from './contas/contas.component';
-
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { ContasComponent } from './contas/contas.component';
   ],
   imports: [
     CommonModule,
-    ContasRoutingModule
+    ContasRoutingModule,
+    MatTableModule
   ]
 })
 export class ContasModule { }
