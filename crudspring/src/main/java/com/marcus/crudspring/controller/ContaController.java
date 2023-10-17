@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,7 +39,7 @@ public class ContaController {
     @GetMapping("/{id}")
     public ResponseEntity<Conta> findById(@PathVariable Long id){
         return contaRepository.findById(id)
-                .map(record->ResponseEntity.ok().body(record))
+                .map(recordFound->ResponseEntity.ok().body(recordFound))
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -49,6 +50,19 @@ public class ContaController {
     return contaRepository.save(account);
         //return ResponseEntity.status()
                 //.body(contaRepository.save(account
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Conta> update(@PathVariable Long id, @RequestBody Conta conta){
+            return contaRepository.findById(id)
+                    .map(recordFound->{
+                        recordFound.setName(conta.getName());
+                        recordFound.setCategory(conta.getCategory());
+                        Conta update = contaRepository.save(recordFound);
+                        return ResponseEntity.ok().body(update);
+                    
+                    }).orElse(ResponseEntity.notFound().build());
     }
 
 }
