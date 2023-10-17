@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.CommandLinePropertySource;
 
-import com.marcus.crudspring.model.Course;
-import com.marcus.crudspring.repository.CourseRepository;
+import com.marcus.crudspring.model.Conta;
+import com.marcus.crudspring.repository.ContasRepository;
 
 @SpringBootApplication
 public class CrudspringApplication {
@@ -15,14 +15,16 @@ public class CrudspringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudspringApplication.class, args);
 	}
+	//Dados mockados
 	@Bean	
-	CommandLineRunner initDatabase(CourseRepository courseRepository){
+	CommandLineRunner initDatabase(ContasRepository contaRepository){
 		return args -> {
-			courseRepository.deleteAll();
-			Course c = new Course();
-			c.setName("Java");
-			c.setCategory("Backend");
-			courseRepository.save(c);
+			contaRepository.deleteAll();
+			Conta c = new Conta();
+			c.setName("Major");
+			c.setCategory("Pessoa Fisica(Pf)");
+			c.setDinheiroTotal(90);
+			contaRepository.save(c);
 		};
 	}
  
