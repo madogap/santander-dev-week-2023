@@ -20,9 +20,10 @@ public class Conta {
     @JsonProperty("_id")
     private Long id;
 
+
     @Column(length = 20, nullable = false)
     private String name;
-
+        
     @Column(length = 20, nullable = false)
     private String category;
 
