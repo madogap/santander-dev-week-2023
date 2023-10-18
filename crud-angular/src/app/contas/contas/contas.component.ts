@@ -1,19 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../model/conta';
+import { ContasService } from '../services/contas.service';
+import { Observable, catchError, of } from 'rxjs';
+import { Dialog } from '@angular/cdk/dialog';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+
+
 
 @Component({
   selector: 'app-contas',
   templateUrl: './contas.component.html',
-  styleUrls: ['./contas.component.scss']
+  styleUrls: ['./contas.component.scss'],
+
 })
 export class ContasComponent implements OnInit {
 
-  contas: Conta[]=[
-    {_id:'1', name: 'Marcus', category: 'Pf'}
-  ];
-  displayedColumns = ['name', 'category'];
+  contas:Observable<Conta[]>;
 
+  displayedColumns = ['name', 'category', 'dinheiroTotal'];
+  //contasService:ContasService;
+
+  constructor(
+    private contasService: ContasService, public dialog: Dialog){
+    //this.contasService=new ContasService();
+  this.contas = this.contasService.list().
+    pipe(
+        catchError(error=>{
+          this.onError('Hello');
+          return of([])
+        })
+      );
+    //this.contas = this.contasService.list();
+  }
+
+  onError(erroMsg: string){
+    this.dialog.open(ErrorDialogComponent, {
+        data: erroMsg
+    });
+  }
   ngOnInit(): void {
+
     throw new Error('Method not implemented.');
 
   }

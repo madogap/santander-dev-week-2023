@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Conta } from '../model/conta';
+import { delay, first, tap } from 'rxjs';
+@Injectable({
+  providedIn: 'root'
+})
+export class ContasService {
+
+    private readonly API = '/assets/contas.json';
+
+    constructor(private httpClient: HttpClient){}
+
+      list(){
+        return this.httpClient.get<Conta[]>(this.API)
+            .pipe(
+              first(),
+              delay(5000),
+              tap(contas=>console.log(contas)));
+
+      }
+
+}
