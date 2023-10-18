@@ -4,14 +4,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
  exports:[
         MatCardModule,
         MatTableModule,
         MatToolbarModule,
         MatProgressSpinnerModule,
-        MatDialogModule
+        MatDialogModule,
+        MatButtonModule
        ],
 })
 export class AppMaterialModule { }

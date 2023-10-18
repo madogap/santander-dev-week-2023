@@ -26,7 +26,7 @@ export class ContasComponent implements OnInit {
   this.contas = this.contasService.list().
     pipe(
         catchError(error=>{
-          this.onError('Hello');
+          this.onError('Erro ao carregar a lista de Contas');
           return of([])
         })
       );
