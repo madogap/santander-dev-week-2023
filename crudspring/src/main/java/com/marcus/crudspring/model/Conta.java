@@ -1,5 +1,6 @@
 package com.marcus.crudspring.model;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
@@ -18,6 +19,7 @@ public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("_id")
+
     private Long id;
 
 
