@@ -22,12 +22,12 @@ public class CrudspringApplication {
 			contaRepository.deleteAll();
 			Conta c = new Conta();
 			c.setName("Major");
-			c.setCategory("Pessoa Fisica(Pf)");
+			c.setCategory("Pessoa Fisica (PF)");
 			c.setDinheiroTotal(90);
 			contaRepository.save(c);
 			Conta d = new Conta();
 			d.setName("Paulo");
-			d.setCategory("Pessoa Fisica(Pj)");
+			d.setCategory("Pessoa Fisica (PJ)");
 			d.setDinheiroTotal(123);
 			contaRepository.save(d);
 

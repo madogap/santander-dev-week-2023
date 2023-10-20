@@ -7,17 +7,23 @@ import { Observable, delay, first, tap } from 'rxjs';
 })
 export class ContasService {
 
-    private readonly API: string = 'http://localhost:8080/api/contas';
 
-    constructor(private httpClient:HttpClient){}
+  private readonly API: string = 'http://localhost:8080/api/contas';
 
-      list(): Observable<Conta[]> {
-        return this.httpClient.get<Conta[]>(this.API)
-            .pipe(
-              first(),
+  constructor(private httpClient:HttpClient){}
+
+  list(): Observable<Conta[]> {
+      return this.httpClient.get<Conta[]>(this.API)
+        .pipe(
+          first(),
               //delay(5000),
-              tap(contas=>console.log(contas)));
+          tap(contas=>console.log(contas)));
+  }
 
-      }
+  save(record:Conta){
+    console.log(record);
+    return this.httpClient.post<Conta>(this.API, record);
+
+  }
 
 }
