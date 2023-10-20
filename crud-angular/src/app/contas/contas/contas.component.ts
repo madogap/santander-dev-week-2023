@@ -4,6 +4,8 @@ import { ContasService } from '../services/contas.service';
 import { catchError, of } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 
@@ -21,7 +23,11 @@ export class ContasComponent implements OnInit {
   //contasService:ContasService;
 
   constructor(
-    private contasService: ContasService, public dialog: Dialog){
+    private contasService: ContasService,
+    public dialog: Dialog,
+    private router:Router,
+    private route: ActivatedRoute
+    ){
     //this.contasService=new ContasService();
     this.contasService.list().
     pipe(
@@ -30,11 +36,10 @@ export class ContasComponent implements OnInit {
           return of([])
         })
       ).subscribe(
-  response => {
-this.contas = response;
-}
-);
-    //this.contas = this.contasService.list();
+          response => {
+          this.contas = response;
+          }
+    );
   }
 
   onError(erroMsg: string){
@@ -47,6 +52,10 @@ this.contas = response;
 
     throw new Error('Method not implemented.');
 
+  }
+  onAdd(){
+    this.router.navigate(['new'], {relativeTo: this.route});
+    console.log("Vamos continuar aprendendo");
   }
 
 }
