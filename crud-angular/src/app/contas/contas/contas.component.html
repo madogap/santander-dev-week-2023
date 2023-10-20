@@ -20,12 +20,28 @@
         <td mat-cell *matCellDef="let conta"> {{ conta.dinheiroTotal }} </td>
       </ng-container>
       <!-- Actions Column -->
-       <ng-container matColumnDef="actions">
-       <mat-header-cell *matHeaderCellDef>
-          <button mat-mini-fab color="accent" aria-label="Adicionar Conta">
-            <mat-icon>add</mat-icon>
-          </button>
-       </mat-header-cell>
+      <ng-container matColumnDef="actions">
+         <mat-header-cell *matHeaderCellDef>
+
+           <button mat-mini-fab color="accent" aria-label="Adicionar Conta">
+             <mat-icon>add</mat-icon>
+           </button>
+
+         </mat-header-cell>
+           <mat-cell  *matCellDef="let conta">
+
+            <button mat-icon-button color="primary" aria-label="Editar Conta">
+               <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn" aria-label="Remover Conta">
+               <mat-icon>delete</mat-icon>
+            </button>
+
+          </mat-cell>
+      </ng-container>
+      <!-- Category Column -->
+       <ng-container>
         <th mat-header-cell *matHeaderCellDef> Category </th>
         <td mat-cell *matCellDef="let conta">{{ conta.category}} </td>
       </ng-container>
