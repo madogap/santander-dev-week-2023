@@ -17,7 +17,7 @@ export class ContasComponent implements OnInit {
 
   contas: Conta[] = [];
 
-  displayedColumns = ['name', 'category', 'dinheiroTotal'];
+  displayedColumns = ['name', 'category', 'dinheiroTotal', 'actions'];
   //contasService:ContasService;
 
   constructor(
