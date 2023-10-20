@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContasService } from '../services/contas.service';
-import { Observable, Subscription, catchError, of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 import { Dialog } from '@angular/cdk/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
