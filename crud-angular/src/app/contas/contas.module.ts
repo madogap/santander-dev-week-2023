@@ -6,6 +6,7 @@ import { ContasComponent } from './contas/contas.component';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContasFormComponent } from './contas-form/contas-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContasFormComponent } from './contas-form/contas-form.component';
     CommonModule,
     ContasRoutingModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
 
   ]
 })
