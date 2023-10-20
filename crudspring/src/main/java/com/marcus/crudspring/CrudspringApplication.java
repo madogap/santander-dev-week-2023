@@ -25,6 +25,11 @@ public class CrudspringApplication {
 			c.setCategory("Pessoa Fisica(Pf)");
 			c.setDinheiroTotal(90);
 			contaRepository.save(c);
+			Conta d = new Conta();
+			d.setName("Paulo");
+			d.setCategory("Pessoa Fisica(Pj)");
+			d.setDinheiroTotal(123);
+			contaRepository.save(d);
 
 		};
 	}

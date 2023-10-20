@@ -7,7 +7,7 @@ import { Observable, delay, first, tap } from 'rxjs';
 })
 export class ContasService {
 
-    private readonly API: string = 'http://localhost:8080/api';
+    private readonly API: string = 'http://localhost:8080/api/contas';
 
     constructor(private httpClient:HttpClient){}
 
