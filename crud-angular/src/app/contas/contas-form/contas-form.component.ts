@@ -1,38 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { ContasService } from '../services/contas.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-contas-form',
   templateUrl: './contas-form.component.html',
   styleUrls: ['./contas-form.component.scss']
 })
-export class ContasFormComponent implements OnInit {
+export class ContasFormComponent  {
 
-  form = this.formBuilder.group({
-    name:[''],
-    category:[''],
-    dinheiroTotal:[0]})
+  form: FormGroup;
 
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private service: ContasService,
     private snackBar: MatSnackBar,
-    private location: Location
-  ){}
-  ngOnInit(): void {}
+    private location: Location,
+     private router: Router
+  ){
+
+    this.form = this.formBuilder.group({
+    name:[''],
+    category:[''],
+    dinheiroTotal:[]})
+
+  }
+
 
   onSubmit(){
     console.log("Salvando fazendo o POST");
-    this.service.save(this.form.value)
-    .subscribe(result => console.log(result));
+    this.service.save(this.form.value).subscribe(
+      (result) => console.log(result));
+        this.router.navigate(['/contas']);
 
   }
 
   onCancel(){
 
     console.log("Cancelando");
+    this.router.navigate(['/contas']);
   }
 
 

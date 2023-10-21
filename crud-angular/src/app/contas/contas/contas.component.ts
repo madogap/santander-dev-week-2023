@@ -45,18 +45,31 @@ export class ContasComponent implements OnInit {
       })).subscribe(response => {this.contas =response});
   }
 
+  ngOnInit(): void {
+    this.fetchContas();
+  }
+
+  fetchContas() {
+    this.contasService.list().subscribe(
+      (response) => {
+        this.contas = response;
+      },
+      (error) => {
+        this.onError('Erro ao carregar a lista de Contas');
+      }
+    );
+  }
+
   onError(erroMsg: string){
     this.dialog.open(ErrorDialogComponent, {
         data: erroMsg
     });
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   onAdd(){
-    this.router.navigate(['new'], {relativeTo: this.route});
+    //this.router.navigate(['/contas/new'], {relativeTo: this.route});
+    this.router.navigate(['new'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
     console.log("Vamos continuar aprendendo");
   }
 
