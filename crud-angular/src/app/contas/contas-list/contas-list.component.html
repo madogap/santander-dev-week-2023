@@ -1,0 +1,54 @@
+<mat-table [dataSource]="contas">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Conta </mat-header-cell>
+        <mat-cell *matCellDef="let conta"> {{ conta.name }} </mat-cell>
+      </ng-container>
+
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let conta">{{ conta.category}} </mat-cell>
+      </ng-container>
+
+      <!-- DinheiroTotaln Column -->
+      <ng-container matColumnDef="dinheiroTotal">
+        <mat-header-cell *matHeaderCellDef> Total em Dinheiro </mat-header-cell>
+        <mat-cell *matCellDef="let conta"> {{ conta.dinheiroTotal }} </mat-cell>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="action-column-header">
+       <!-- ADD BUTTON -->
+           <button (click)="onAdd()" mat-mini-fab color="accent" aria-label="Adicionar Conta">
+             <mat-icon>add</mat-icon>
+           </button>
+
+        </mat-header-cell>
+
+          <mat-cell *matCellDef="let conta" class="action-column">
+          <!-- EDIT BUTTON -->
+            <button mat-icon-button color="primary" aria-label="Editar Conta">
+               <mat-icon>edit</mat-icon>
+            </button>
+
+          <!--DELETE BUTTON -->
+            <button mat-icon-button color="warn" aria-label="Remover Conta">
+               <mat-icon>delete</mat-icon>
+            </button>
+
+          </mat-cell>
+      </ng-container>
+      <!-- Category Column -->
+
+      <ng-container>
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let conta">{{ conta.category}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>

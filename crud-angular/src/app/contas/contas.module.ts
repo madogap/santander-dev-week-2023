@@ -7,11 +7,13 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContasFormComponent } from './contas-form/contas-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContasListComponent } from './contas-list/contas-list.component';
 
 @NgModule({
   declarations: [
     ContasComponent,
-    ContasFormComponent
+    ContasFormComponent,
+    ContasListComponent
   ],
   imports: [
     CommonModule,

@@ -16,11 +16,10 @@ export class ContasService {
       return this.httpClient.get<Conta[]>(this.API)
         .pipe(
           first(),
-              //delay(5000),
           tap(contas=>console.log(contas)));
   }
 
-  save(record:Conta){
+  save(record:Partial<Conta>){
     console.log(record);
     return this.httpClient.post<Conta>(this.API, record);
 

@@ -1,55 +1,20 @@
 
-<mat-card>
+  <mat-card>
+    <mat-toolbar color="primary">Contas</mat-toolbar>
 
+    <div class="column-flex mat-elevation-z8">
 
-    <table mat-table [dataSource]="contas" class="mat-elevation-z8">
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Conta </th>
-        <td mat-cell *matCellDef="let conta"> {{ conta.name }} </td>
-      </ng-container>
-      <!-- Category Column -->
-      <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let conta">{{ conta.category}} </td>
-      </ng-container>
-      <!-- DinheiroTotaln Column -->
-      <ng-container matColumnDef="dinheiroTotal">
-        <th mat-header-cell *matHeaderCellDef> Total em Dinheiro </th>
-        <td mat-cell *matCellDef="let conta"> {{ conta.dinheiroTotal }} </td>
-      </ng-container>
-      <!-- Actions Column -->
-      <ng-container matColumnDef="actions">
-         <mat-header-cell *matHeaderCellDef>
-
-           <button (click)="onAdd()" mat-mini-fab color="accent" aria-label="Adicionar Conta">
-             <mat-icon>add</mat-icon>
-           </button>
-
-         </mat-header-cell>
-           <mat-cell  *matCellDef="let conta">
-
-            <button mat-icon-button color="primary" aria-label="Editar Conta">
-               <mat-icon>edit</mat-icon>
-            </button>
-
-            <button mat-icon-button color="warn" aria-label="Remover Conta">
-               <mat-icon>delete</mat-icon>
-            </button>
-
-          </mat-cell>
-      </ng-container>
-      <!-- Category Column -->
-       <ng-container>
-        <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let conta">{{ conta.category}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <app-contas-list *ngIf="contas; else loading"[contas]="contas"></app-contas-list>
 
 
 
-</mat-card>
+    <ng-template #loading>
+      <div class="loading">
+        <mat-spinner>
+
+        </mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+
+  </mat-card>
