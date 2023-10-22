@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder } from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { ContasService } from '../services/contas.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -14,6 +14,9 @@ export class ContasFormComponent  {
 
   form: FormGroup;
 
+
+
+
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private service: ContasService,
@@ -25,7 +28,8 @@ export class ContasFormComponent  {
     this.form = this.formBuilder.group({
     name:[''],
     category:[''],
-    dinheiroTotal:[]})
+    dinheiroTotal:[]
+    })
 
   }
 

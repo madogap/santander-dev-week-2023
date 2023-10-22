@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Conta } from '../model/conta';
-import { Observable, delay, first, tap } from 'rxjs';
+import { Observable,first, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +17,10 @@ export class ContasService {
         .pipe(
           first(),
           tap(contas=>console.log(contas)));
+  }
+
+  loadById(id:string){
+    return this.httpClient.get<Conta>(`${this.API}/${id}`);
   }
 
   save(record:Partial<Conta>){
