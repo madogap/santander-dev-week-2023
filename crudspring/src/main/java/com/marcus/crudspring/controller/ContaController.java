@@ -24,7 +24,7 @@ import com.marcus.crudspring.repository.ContasRepository;
 import lombok.AllArgsConstructor;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/contas")
 @AllArgsConstructor
 public class ContaController {
@@ -38,10 +38,14 @@ public class ContaController {
         return contaRepository.findAll();
     }
 
+    // Resposta na requiscao Response agora da pra mapear
     @GetMapping("/{id}")
-    public ResponseEntity<Conta> findById(@PathVariable Long id) {
+    public ResponseEntity<Conta> findById(@PathVariable("id") Long id) {
+
         return contaRepository.findById(id)
+
                 .map(recordFound -> ResponseEntity.ok().body(recordFound))
+
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -60,6 +64,7 @@ public class ContaController {
                 .map(recordFound -> {
                     recordFound.setName(conta.getName());
                     recordFound.setCategory(conta.getCategory());
+                    recordFound.setDinheiroTotal(conta.getDinheiroTotal());
                     Conta update = contaRepository.save(recordFound);
                     return ResponseEntity.ok().body(update);
 
@@ -67,15 +72,13 @@ public class ContaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         return contaRepository.findById(id)
-                    .map(recordFound->{ 
-                        contaRepository.deleteById(id);
-                        return ResponseEntity.noContent().<Void>build();
-                    
-                    }).orElse(ResponseEntity.notFound().build());
-                        
-                 
+                .map(recordFound -> {
+                    contaRepository.deleteById(id);
+                    return ResponseEntity.noContent().<Void>build();
+
+                }).orElse(ResponseEntity.notFound().build());
 
     }
 }

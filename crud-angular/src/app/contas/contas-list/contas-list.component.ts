@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Conta } from '../model/conta';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +15,8 @@ export class ContasListComponent implements OnInit {
 
 
   @Input()contas:Conta[]=[];
+
+  @Output() edit = new EventEmitter(false);
   readonly displayedColumns = ['name', 'category', 'dinheiroTotal', 'actions'];
 
   constructor(
@@ -34,7 +36,9 @@ export class ContasListComponent implements OnInit {
     this.router.navigate(['new'], {relativeTo: this.route});
     console.log("Vamos continuar aprendendo");
   }
-
+  onEdit(conta:Conta){
+    this.edit.emit(conta);
+  }
 
 
 }
