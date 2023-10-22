@@ -72,5 +72,8 @@ export class ContasComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
     console.log("Vamos continuar aprendendo");
   }
+  onEdit(conta:Conta){
+    this.router.navigate(['edit', conta._id], {relativeTo: this.route});
+  }
 
 }

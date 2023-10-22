@@ -4,7 +4,7 @@
 
     <div class="column-flex mat-elevation-z8">
 
-    <app-contas-list *ngIf="contas; else loading"[contas]="contas"></app-contas-list>
+    <app-contas-list *ngIf="contas; else loading"[contas]="contas" (edit)="onEdit($event)"></app-contas-list>
 
 
 

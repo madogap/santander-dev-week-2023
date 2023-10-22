@@ -6,6 +6,7 @@ import { ContasFormComponent } from './contas-form/contas-form.component';
 const routes: Routes = [
   { path:'', component: ContasComponent },
   { path:'new', component: ContasFormComponent },
+  { path:'edit/:id', component: ContasFormComponent },
 ];
 
 @NgModule({
