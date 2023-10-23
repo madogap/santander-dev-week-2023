@@ -22,23 +22,47 @@ import com.marcus.crudspring.model.Conta;
 import com.marcus.crudspring.repository.ContasRepository;
 
 import lombok.AllArgsConstructor;
-
+/* 
+* 
+*
+*
+*/
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/contas")
 @AllArgsConstructor
 public class ContaController {
-
+   
+    //Anotacao de Injecao de dependecia marca um construtor campo 
+    //Utilização dos metodos diposniveis da JPARepository
     @Autowired
     private ContasRepository contaRepository;
 
     // @RequestMapping(method=RequestMethod.GET)
+    // Metodo de busca de todas as contas do repository 
+    //Utilização dos metodos diposniveis da JPARepository
     @GetMapping
     public List<Conta> list() {
         return contaRepository.findAll();
     }
 
-    // Resposta na requiscao Response agora da pra mapear
+    /**
+     * @apiNote Metodo de busca conta por ID vindo da URI 
+     * @param id Parametro vindo da URI do TYPE Long de acordo com a class Conta 
+     * @param @PathVariable anotação que indica que um parâmetro de método deve ser 
+     * vinculado a uma variável de modelo URI. Com suporte para métodos manipuladores anotados 
+     * RequestMapping.
+     * 
+     * @return É optional do Java o valor pode ou nao exitir entao devemos 
+     * controlar adicionando a class ResponseEntity que permite 
+     * a funcao map temos que saber de que tipo que api espera tipo Conta
+     * @contaRepository metodo da interface que extends JpaRepository que aplica   
+     * na Resposta da requiscao Response agora da pra mapear e tratar o recordFound 
+     * o registro encontrado recordFound na lambda de status code e corpo de resposta 
+     * e caso  nao encontre a conta buscada orElse entra em execucao dando o erro do notFound e a build de retorno
+     * @see https://trello.com/c/20I3zYor/121-26-buscar-por-id-no-back-end
+     *
+     */ 
     @GetMapping("/{id}")
     public ResponseEntity<Conta> findById(@PathVariable("id") Long id) {
 
