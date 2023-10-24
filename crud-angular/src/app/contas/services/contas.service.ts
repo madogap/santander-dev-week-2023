@@ -16,7 +16,9 @@ export class ContasService {
       return this.httpClient.get<Conta[]>(this.API)
         .pipe(
           first(),
-          tap(contas=>console.log(contas)));
+          tap(contas=>console.log(contas))
+            
+    );
   }
 
   loadById(id:string){

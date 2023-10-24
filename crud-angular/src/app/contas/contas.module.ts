@@ -9,11 +9,20 @@ import { ContasFormComponent } from './contas-form/contas-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContasListComponent } from './contas-list/contas-list.component';
 
+
+
+import { ButtonEditContaComponent } from './components/button-edit-conta/button-edit-conta.component';
+import { ButtonCreatedContaComponent } from './components/button-created-conta/button-created-conta.component';
+import { ButtonDeleteContaComponent } from './components/button-delete-conta/button-delete-conta.component';
+
 @NgModule({
   declarations: [
     ContasComponent,
     ContasFormComponent,
-    ContasListComponent
+    ContasListComponent,
+    ButtonEditContaComponent,
+    ButtonCreatedContaComponent,
+    ButtonDeleteContaComponent
   ],
   imports: [
     CommonModule,

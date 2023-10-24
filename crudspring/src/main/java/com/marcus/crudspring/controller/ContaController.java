@@ -83,7 +83,7 @@ public class ContaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Conta> update(@PathVariable Long id, @RequestBody Conta conta) {
+    public ResponseEntity<Conta> update(@PathVariable("id") Long id, @RequestBody Conta conta) {
         return contaRepository.findById(id)
                 .map(recordFound -> {
                     recordFound.setName(conta.getName());

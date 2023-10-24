@@ -54,9 +54,8 @@ export class ContasComponent implements OnInit {
       (response) => {
         this.contas = response;
       },
-      (error) => {
-        this.onError('Erro ao carregar a lista de Contas');
-      }
+
+
     );
   }
 

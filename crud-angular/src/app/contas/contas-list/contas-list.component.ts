@@ -21,9 +21,7 @@ export class ContasListComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private route:ActivatedRoute){
-
-
+    private route:ActivatedRoute) {
 
     }
 
@@ -38,6 +36,7 @@ export class ContasListComponent implements OnInit {
   }
   onEdit(conta:Conta){
     this.edit.emit(conta);
+
   }
 
 
