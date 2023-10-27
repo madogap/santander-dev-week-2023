@@ -4,6 +4,7 @@ import { Conta } from '../model/conta';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContasFormComponent } from '../contas-form/contas-form.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ButtonCreatedContaComponent } from '../components/button-created-conta/button-created-conta.component';
 
 @Component({
   selector: 'app-contas-list',
@@ -33,9 +34,12 @@ export class ContasListComponent implements OnInit {
   onAdd(){
     this.router.navigate(['new'], {relativeTo: this.route});
     console.log("Vamos continuar aprendendo");
+
   }
   onEdit(conta:Conta){
     this.edit.emit(conta);
+    
+
 
   }
 

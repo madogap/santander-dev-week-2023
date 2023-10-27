@@ -55,7 +55,10 @@ export class ContasFormComponent implements OnInit, OnDestroy {
     this.service
       .save(this.form.value)
       .subscribe((result) => console.log(result));
+
     this.router.navigate(["/contas"]);
+    
+
   }
 
   onCancel() {
