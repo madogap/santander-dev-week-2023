@@ -2,9 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Conta } from '../model/conta';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContasFormComponent } from '../contas-form/contas-form.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ButtonCreatedContaComponent } from '../components/button-created-conta/button-created-conta.component';
+
+
 
 @Component({
   selector: 'app-contas-list',
@@ -17,7 +16,11 @@ export class ContasListComponent {
 
   @Input()contas:Conta[]=[];
 
+  @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
+
+  @Output() remove = new EventEmitter(false);
+
   readonly displayedColumns = ['name', 'category', 'dinheiroTotal', 'actions'];
 
   constructor(
@@ -33,10 +36,10 @@ export class ContasListComponent {
   }
   onEdit(conta:Conta){
     this.edit.emit(conta);
-
-
-
   }
 
+  onDelete(conta:Conta){
+    this.remove.emit(conta);
+  }
 
 }

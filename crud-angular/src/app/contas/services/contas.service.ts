@@ -42,7 +42,11 @@ export class ContasService {
   }
 
   private update(record:Partial<Conta>){
-    return this.httpClient.put<Conta>(`${this.API}/${record._id}`, record).pipe(first());
+    return this.httpClient.put<Conta>(`${this.API}/${record._id}`, record);
+  }
+
+  remove(_id: string){
+    return this.httpClient.delete(`${this.API}/${_id}`);
   }
 
 }
