@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Conta } from '../model/conta';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { ButtonCreatedContaComponent } from '../components/button-created-conta/
   templateUrl: './contas-list.component.html',
   styleUrls: ['./contas-list.component.scss']
 })
-export class ContasListComponent implements OnInit {
+export class ContasListComponent {
 
 
 
@@ -26,11 +26,6 @@ export class ContasListComponent implements OnInit {
 
     }
 
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
   onAdd(){
     this.router.navigate(['new'], {relativeTo: this.route});
     console.log("Vamos continuar aprendendo");
@@ -38,7 +33,7 @@ export class ContasListComponent implements OnInit {
   }
   onEdit(conta:Conta){
     this.edit.emit(conta);
-    
+
 
 
   }
