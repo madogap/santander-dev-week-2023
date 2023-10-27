@@ -12,6 +12,11 @@ import { ContasListComponent } from './contas-list/contas-list.component';
 import { ButtonEditContaComponent } from './components/button-edit-conta/button-edit-conta.component';
 import { ButtonCreatedContaComponent } from './components/button-created-conta/button-created-conta.component';
 import { ButtonDeleteContaComponent } from './components/button-delete-conta/button-delete-conta.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { MasterComponent } from './pages/master/master.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ReportsComponent } from './pages/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ButtonDeleteContaComponent } from './components/button-delete-conta/but
     ContasListComponent,
     ButtonEditContaComponent,
     ButtonCreatedContaComponent,
-    ButtonDeleteContaComponent
+    ButtonDeleteContaComponent,
+    LoginComponent,
+    SignupComponent,
+    MasterComponent,
+    HomeComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,

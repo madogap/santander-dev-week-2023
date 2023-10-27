@@ -18,7 +18,6 @@ export class ContasListComponent {
 
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
-
   @Output() remove = new EventEmitter(false);
 
   readonly displayedColumns = ['name', 'category', 'dinheiroTotal', 'actions'];
@@ -30,7 +29,8 @@ export class ContasListComponent {
     }
 
   onAdd(){
-    this.router.navigate(['new'], {relativeTo: this.route});
+    this.add.emit(true)
+    //this.router.navigate(['new'], {relativeTo: this.route});
     console.log("Vamos continuar aprendendo");
 
   }

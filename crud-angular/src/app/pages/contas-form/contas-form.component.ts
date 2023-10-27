@@ -1,7 +1,7 @@
 
 
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { FormGroup, NonNullableFormBuilder } from "@angular/forms";
+import { FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators } from "@angular/forms";
 import { ContasService } from "../services/contas.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router, ActivatedRoute, Data } from "@angular/router";
@@ -25,7 +25,12 @@ export class ContasFormComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
-      name: [""],
+      name: ["",[
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(100),
+
+      ]],
       category: [""],
       dinheiroTotal: [""],
     });
@@ -55,17 +60,25 @@ export class ContasFormComponent implements OnInit, OnDestroy {
     this.service
       .save(this.form.value)
       .subscribe((result) => console.log(result));
-
     this.router.navigate(["/contas"]);
-    
 
   }
 
   onCancel() {
-    this.router.navigate(["/contas"]);
+    this.location.back();
   }
 
   private onError() {
     this.snackBar.open("ERROR EM SALVAR A CONTA", " ", { duration: 3000 });
+  }
+
+  private onSucess(){
+    this.snackBar.open("Conta salva com sucesso", " ", { duration: 3000 });
+    this.onCancel();
+  }
+
+  removeConta(index: number) {
+    const contas = this.form.get('contas') as UntypedFormArray;
+    contas.removeAt(index);
   }
 }
