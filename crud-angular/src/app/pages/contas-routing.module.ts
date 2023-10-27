@@ -14,13 +14,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
 const routes: Routes = [
   { path:'', component: ContasComponent },
   { path:'new', component: ButtonCreatedContaComponent, resolve:{conta:ContaResolver}  },
-  { path:'edit/:id', component: ButtonEditContaComponent, resolve:{conta:ContaResolver} },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'master', component: MasterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'reports', component: ReportsComponent },
-];
+  { path:'edit/:id', component: ButtonEditContaComponent, resolve:{conta:ContaResolver} },];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
