@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Conta } from '../model/conta';
 import { ContasService } from '../services/contas.service';
-import { Observable, catchError, of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -32,7 +33,8 @@ export class ContasComponent implements OnInit {
     private contasService: ContasService,
     public dialog: MatDialog,
     private router:Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar
     ){
 
     //this.contasService= new ContasService();
@@ -71,8 +73,16 @@ export class ContasComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
     console.log("Vamos continuar aprendendo");
   }
+
   onEdit(conta:Conta){
     this.router.navigate(['edit', conta._id], {relativeTo: this.route});
+  }
+
+  onRemove(conta:Conta){
+    this.contasService.remove(conta._id).subscribe(()=>{
+      this.snackBar.open('Conta removida com sucesso', 'X', {
+        duration:5000})
+    });
   }
 
 }
