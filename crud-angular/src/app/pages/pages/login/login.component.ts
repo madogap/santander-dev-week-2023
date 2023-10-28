@@ -15,4 +15,12 @@ export class LoginComponent {
 
   }
 
+  btnLogin():void{
+    if (this.username == "admin" && this.password == "admin") {
+      this.mensagemLogin='Correto';
+    } else {
+      this.mensagemLogin='Incorreto';
+    }
+  }
+
 }
