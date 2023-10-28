@@ -6,7 +6,7 @@ import { ContasComponent } from './contas/contas.component';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContasFormComponent } from './contas-form/contas-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContasListComponent } from './contas-list/contas-list.component';
 
 import { ButtonEditContaComponent } from './components/button-edit-conta/button-edit-conta.component';
@@ -37,7 +37,8 @@ import { ReportsComponent } from './pages/reports/reports.component';
     ContasRoutingModule,
     AppMaterialModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ]
 })
