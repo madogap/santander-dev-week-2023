@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,14 @@ export class LoginComponent {
   password:string="";
   mensagemLogin:string="";
 
-  constructor(){
+  constructor(private router:Router){
 
   }
 
   btnLogin():void{
     if (this.username == "admin" && this.password == "admin") {
       this.mensagemLogin='Correto';
+      this.router.navigate(['contas']);
     } else {
       this.mensagemLogin='Incorreto';
     }
