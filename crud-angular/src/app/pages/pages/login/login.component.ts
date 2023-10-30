@@ -25,4 +25,8 @@ export class LoginComponent {
     }
   }
 
+  btnRecuperar():void{
+    this.router.navigate(['signup'])
+  }
+
 }

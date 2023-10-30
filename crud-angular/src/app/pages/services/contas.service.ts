@@ -19,12 +19,12 @@ export class ContasService {
     );
   }
 
-  loadById(id:string) {
+  loadById(id:string):Observable<Conta> {
     return this.httpClient.get<Conta>(`${this.API}/${id}`);
   }
 
-  save(record:Partial<Conta>) {
-    //debugger
+  save(record:Partial<Conta>):Observable<Conta> {
+    debugger
     console.log(record);
 
     if (record._id) {
@@ -33,11 +33,11 @@ export class ContasService {
     return this.create(record);
   }
 
-  private create(record:Partial<Conta>) {
+  private create(record:Partial<Conta>):Observable<Conta> {
     return this.httpClient.post<Conta>(this.API, record).pipe(first());
   }
 
-  private update(record:Partial<Conta>) {
+  private update(record:Partial<Conta>):Observable<Conta> {
     return this.httpClient.patch<Conta>(`${this.API}/${record._id}`, record);
   }
 

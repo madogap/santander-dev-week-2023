@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'master', component: MasterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'reports', component: ReportsComponent },
+  { path: 'singin', component: SignupComponent }
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ import { MasterComponent } from './pages/master/master.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReportsComponent } from './pages/reports/reports.component';
 
+
 @NgModule({
   declarations: [
     ContasComponent,
@@ -30,7 +31,8 @@ import { ReportsComponent } from './pages/reports/reports.component';
     SignupComponent,
     MasterComponent,
     HomeComponent,
-    ReportsComponent
+    ReportsComponent,
+
   ],
   imports: [
     CommonModule,
