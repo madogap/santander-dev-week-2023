@@ -24,7 +24,9 @@ export class ContasService {
   }
 
   save(record:Partial<Conta>) {
+    //debugger
     console.log(record);
+
     if (record._id) {
       return this.update(record);
     }
@@ -36,7 +38,7 @@ export class ContasService {
   }
 
   private update(record:Partial<Conta>) {
-    return this.httpClient.put<Conta>(`${this.API}/${record._id}`, record);
+    return this.httpClient.patch<Conta>(`${this.API}/${record._id}`, record);
   }
 
   remove(_id: string) {

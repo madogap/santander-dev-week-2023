@@ -1,14 +1,16 @@
 <div class="container">
   <mat-card>
-    <mat-card-content>
+    <mat-card-content class="card-content">
       <!--Formulario-->
       <form class="login-form">
-        <mat-form-field>
-          <input name="userApp" type="text" placeholder="Usuario" [(ngModel)]="username">
+        <span class="login-form-title">Login</span>
+
+        <mat-form-field class="div-input-login-name">
+          <input class="input-login-name" name="userApp" type="text" placeholder="Usuario" [(ngModel)]="username">
         </mat-form-field>
 
-        <mat-form-field>
-          <input name="passwordApp" mat-input type="password" placeholder="Senha" [(ngModel)]="password">
+        <mat-form-field class="div-input-login-password">
+          <input class="input-login-password" name="passwordApp" mat-input type="password" placeholder="Senha" [(ngModel)]="password">
         </mat-form-field>
 
         <span>

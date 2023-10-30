@@ -25,6 +25,7 @@ export class ContasFormComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
+      _id: [null],
       name: ["",[
       Validators.required,
       Validators.minLength(5),
@@ -41,6 +42,7 @@ export class ContasFormComponent implements OnInit, OnDestroy {
       this.activatedRoute.data.subscribe({
         next: (data: Data) => {
           this.form = this.formBuilder.group({
+            _id: data['conta']['_id'],
             name: data['conta']["name"],
             category: data['conta']["category"],
             dinheiroTotal: data['conta']["dinheiroTotal"],

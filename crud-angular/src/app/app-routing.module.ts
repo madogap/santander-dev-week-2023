@@ -7,7 +7,7 @@ import { MasterComponent } from './pages/pages/master/master.component';
 import { ReportsComponent } from './pages/pages/reports/reports.component';
 
 const routes: Routes = [
-  { path:'', pathMatch:'full',redirectTo:'contas' },
+  { path:'', pathMatch:'full',redirectTo:'login' },
   {
     path:'contas',
     loadChildren:()=>import('./pages/contas.module').then(m=>m.ContasModule)
