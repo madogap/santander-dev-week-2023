@@ -46,6 +46,8 @@ public class ContaController {
         return contaRepository.findAll();
     }
 
+
+
     /**
      * @apiNote Metodo de busca conta por ID vindo da URI 
      * @param id Parametro vindo da URI do TYPE Long de acordo com a class Conta 
