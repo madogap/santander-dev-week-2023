@@ -2,17 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Conta } from '../model/conta';
 
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-
 @Component({
   selector: 'app-contas-list',
   templateUrl: './contas-list.component.html',
   styleUrls: ['./contas-list.component.scss']
 })
 export class ContasListComponent {
-
-
 
   @Input()contas:Conta[]=[];
 
@@ -30,7 +25,6 @@ export class ContasListComponent {
 
   onAdd(){
     this.add.emit(true)
-    //this.router.navigate(['new'], {relativeTo: this.route});
     console.log("Vamos continuar aprendendo");
 
   }

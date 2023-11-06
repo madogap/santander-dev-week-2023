@@ -19,10 +19,10 @@ export class ContasFormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: NonNullableFormBuilder,
     private service: ContasService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
     private snackBar: MatSnackBar,
     private location: Location,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
       _id: [null],
@@ -61,7 +61,7 @@ export class ContasFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.service
       .save(this.form.value)
-      .subscribe((result) => console.log(result));
+      .subscribe((Data) => console.log(Data));
     this.router.navigate(["/contas"]);
 
   }

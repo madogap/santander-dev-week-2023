@@ -19,15 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ContasComponent implements OnInit {
 
-  //contas:Observable<Conta[]> | undefined;
-  //contas: Conta[] = [];
-  //contasService:ContasService;
-
-
   contas: Conta[] = [];
-
-
-  //contasService:ContasService;
 
   constructor(
     private contasService: ContasService,
@@ -36,8 +28,6 @@ export class ContasComponent implements OnInit {
     private route: ActivatedRoute,
     private snackBar: MatSnackBar
     ){
-
-    //this.contasService= new ContasService();
 
    this.contasService.list().
     pipe(
@@ -56,8 +46,6 @@ export class ContasComponent implements OnInit {
       (response) => {
         this.contas = response;
       },
-
-
     );
   }
 
@@ -68,9 +56,7 @@ export class ContasComponent implements OnInit {
   }
 
   onAdd(){
-    //this.router.navigate(['/contas/new'], {relativeTo: this.route});
     this.router.navigate(['new'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
-
     console.log("Vamos continuar aprendendo");
   }
 

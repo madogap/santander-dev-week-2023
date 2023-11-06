@@ -5,13 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 import lombok.Data;
-/**
- * 
- * @see
- * 
- * 
- *
- */
+
 @Data
 @Entity
 @Table(name="tb_contas")
