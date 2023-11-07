@@ -4,7 +4,8 @@ import { LoginComponent } from './pages/pages/login/login.component';
 import { SignupComponent } from './pages/pages/signup/signup.component';
 import { HomeComponent } from './pages/pages/home/home.component';
 import { MasterComponent } from './pages/pages/master/master.component';
-import { ReportsComponent } from './pages/pages/reports/reports.component';
+import { RegisterComponent } from './pages/pages/register/register.component';
+import { authGuard } from './pages/pages/guards/auth.guard';
 
 const routes: Routes = [
   { path:'', pathMatch:'full',redirectTo:'login' },
@@ -15,8 +16,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'master', component: MasterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'reports', component: ReportsComponent },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [authGuard]
+  },
+  { path: 'register', component: RegisterComponent },
   { path: 'singin', component: SignupComponent }
 ];
 

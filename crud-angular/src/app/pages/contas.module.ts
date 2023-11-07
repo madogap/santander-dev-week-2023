@@ -17,6 +17,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReportsComponent } from './pages/reports/reports.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
     MasterComponent,
     HomeComponent,
     ReportsComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -40,7 +43,8 @@ import { ReportsComponent } from './pages/reports/reports.component';
     AppMaterialModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ]
 })

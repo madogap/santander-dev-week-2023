@@ -25,7 +25,8 @@ import { MatBadgeModule } from '@angular/material/badge';
         MatInputModule,
         MatSelectModule,
         MatSnackBarModule,
-        MatBadgeModule
+        MatBadgeModule,
+
        ],
 })
 export class AppMaterialModule { }

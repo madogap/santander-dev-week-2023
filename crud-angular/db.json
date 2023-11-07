@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "fullName": "test user",
+      "email": "test1@gmail.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "fullName": "test Data",
+      "email": "test@gmail.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "fullName": "test user",
+      "email": "asasa@gmai.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "fullName": "aaaa",
+      "email": "madogap@gmail.com",
+      "password": "123",
+      "id": 4
+    }
+  ]
+}

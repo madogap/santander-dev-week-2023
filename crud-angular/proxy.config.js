@@ -4,9 +4,6 @@ const PROXY_CONFIG = [
     target: 'http://localhost:8080/api',
     secure: false,
     logLevel: 'debug'
-
-
-
   }
 ];
 

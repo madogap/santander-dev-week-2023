@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,26 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required]
+  })
 
-  username:string="";
-  password:string="";
-  mensagemLogin:string="";
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
 
-  constructor(private router:Router){
+  ) { }
 
+  get email() {
+    return this.loginForm.controls['email'];
   }
+  get password() { return this.loginForm.controls['password']; }
 
-  btnLogin():void{
-    if (this.username == "admin" && this.password == "admin") {
-      this.mensagemLogin='Correto';
-      this.router.navigate(['contas']);
-    } else {
-      this.mensagemLogin='Incorreto';
-    }
-  }
-
-  btnRecuperar():void{
-    this.router.navigate(['signup'])
+  loginUser() {
+    const { email, password } = this.loginForm.value;
+    this.authService.getUserByEmail(email as string).subscribe(
+      response => {
+        if (response.length > 0 && response[0].password === password) {
+          sessionStorage.setItem('email', email as string);
+          this.router.navigate(['/home']);
+        }
+      }
+    )
   }
 
 }

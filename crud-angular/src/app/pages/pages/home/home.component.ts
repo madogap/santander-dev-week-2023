@@ -7,11 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(
-        private router: Router
-    ) { }
+  constructor(private router: Router) { }
 
-    goToLogin() {
-        this.router.navigate(['/login']);
-    }
+  logOut() {
+    sessionStorage.clear();
+    this.router.navigate(['login']);
+  }
 }

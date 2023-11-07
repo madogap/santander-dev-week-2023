@@ -1,24 +1,39 @@
-<div class="container">
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
   <mat-card>
-    <mat-card-content class="card-content">
-      <!--Formulario-->
-      <form class="login-form">
-        <span class="login-form-title">Login</span>
-
-        <mat-form-field class="div-input-login-name">
-          <input class="input-login-name" name="userApp" type="text" placeholder="Usuario" [(ngModel)]="username">
-        </mat-form-field>
-
-        <mat-form-field class="div-input-login-password">
-          <input class="input-login-password" name="passwordApp" mat-input type="password" placeholder="Senha" [(ngModel)]="password">
-        </mat-form-field>
-
-        <span>
-          {{ mensagemLogin }}
-        </span>
-        <button (click)="btnLogin()" mat-raised-button type="submit" color="primary">Entrar</button>
-        <button  (click)="btnRecuperar()" mat-raised-button type="button" color="primary">Recuperar Senha</button>
-      </form>
-    </mat-card-content>
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        formControlName="email"
+        styleClass="w-full"
+        name="email"
+        placeholder="Type your email"
+      >
+      <small *ngIf="email.invalid && (email.dirty||email.touched )"
+            class="block p-error">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+    </div>
+    <div class="field">
+      <label for="password">password</label>
+      <input
+        type="password"
+        formControlName="password"
+        styleClass="w-full"
+        name="password"
+        placeholder="Type your password"
+      >
+       <small *ngIf="password.invalid && (password.dirty||password.touched)"
+            class="block p-error">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+      </small>
+    </div>
+      <button label="Login" mat-button color="primary" [disabled]="loginForm.invalid"></button>
+    <div class="mt-2">
+      Not a member? <a routerLink="/register">Register</a>
+    </div>
   </mat-card>
-</div>
+
+</form>
+
