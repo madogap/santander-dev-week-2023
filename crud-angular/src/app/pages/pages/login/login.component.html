@@ -29,7 +29,13 @@
         <div *ngIf="password.errors?.['required']">Password is required.</div>
       </small>
     </div>
-      <button label="Login" mat-button color="primary" [disabled]="loginForm.invalid"></button>
+      <button
+        label="Login"
+        mat-button color="primary"
+        [disabled]="loginForm.invalid"
+        type="submit"
+      >
+      </button>
     <div class="mt-2">
       Not a member? <a routerLink="/register">Register</a>
     </div>

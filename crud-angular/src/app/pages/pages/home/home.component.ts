@@ -11,6 +11,6 @@ export class HomeComponent {
 
   logOut() {
     sessionStorage.clear();
-    this.router.navigate(['login']);
+    return this.router.navigate(['login']);
   }
 }
