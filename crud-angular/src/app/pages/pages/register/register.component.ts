@@ -48,7 +48,7 @@ export class RegisterComponent {
     this.authService.registerUser(postData as User).subscribe(
       response => {
         console.log(response);
-        this.router.navigate(['login'])
+        this.router.navigate(['login']);
       },
     )
   }

@@ -13,10 +13,8 @@ import { ButtonEditContaComponent } from './components/button-edit-conta/button-
 import { ButtonCreatedContaComponent } from './components/button-created-conta/button-created-conta.component';
 import { ButtonDeleteContaComponent } from './components/button-delete-conta/button-delete-conta.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
 import { MasterComponent } from './pages/master/master.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ReportsComponent } from './pages/reports/reports.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,10 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonCreatedContaComponent,
     ButtonDeleteContaComponent,
     LoginComponent,
-    SignupComponent,
     MasterComponent,
     HomeComponent,
-    ReportsComponent,
     RegisterComponent,
 
   ],

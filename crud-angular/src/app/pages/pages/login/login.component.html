@@ -1,45 +1,33 @@
-<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <mat-card>
-    <div class="field">
-      <label for="email">Email</label>
-      <input
-        type="text"
-        formControlName="email"
-        styleClass="w-full"
-        name="email"
-        placeholder="Type your email"
-      >
-      <small *ngIf="email.invalid && (email.dirty||email.touched )"
-            class="block p-error">
-        <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
-      </small>
-    </div>
-    <div class="field">
-      <label for="password">password</label>
-      <input
-        type="password"
-        formControlName="password"
-        styleClass="w-full"
-        name="password"
-        placeholder="Type your password"
-      >
-       <small *ngIf="password.invalid && (password.dirty||password.touched)"
-            class="block p-error">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-      </small>
-    </div>
-      <button
-        label="Login"
-        mat-button color="primary"
-        [disabled]="loginForm.invalid"
-        type="submit"
-      >
-      </button>
-    <div class="mt-2">
-      Not a member? <a routerLink="/register">Register</a>
-    </div>
-  </mat-card>
-
-</form>
-
+<div class="login-container">
+  <div class="login-content">
+    <mat-card-title>Login</mat-card-title>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <mat-form-field>
+        <mat-card>
+          <div class="field">
+            <mat-label>
+              <label for="email">Email</label>
+            </mat-label>
+            <input matInput type="text" formControlName="email" styleClass="w-full" name="email"
+              placeholder="Type your email">
+            <small *ngIf="email.invalid && (email.dirty||email.touched )" class="block p-error">
+              <div *ngIf="email.errors?.['required']">Email is required.</div>
+              <div *ngIf="email.errors?.['email']">Email should be valid</div>
+            </small>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" styleClass="w-full" name="password"
+              placeholder="Type your password">
+            <small *ngIf="password.invalid && (password.dirty||password.touched)" class="block p-error">
+              <div *ngIf="password.errors?.['required']">Password is required.</div>
+            </small>
+          </div>
+          <button label="Login" mat-button color="primary" [disabled]="loginForm.invalid" type="submit"> Login </button>
+          <div class="mt-2"> Not a member? <a routerLink="/register">Register</a>
+          </div>
+        </mat-card>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
